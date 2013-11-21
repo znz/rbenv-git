@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Summary: Run `git` in directories of all installed plugins.
+#
+# Usage: rbenv git <any-git-sub-commands>...
+#
+# Example: rbenv git pull
+#          rbenv git gc
+
+set -eo pipefail
+[ -n "$RBENV_DEBUG" ] && set -x
+set -u
+
+rbenv_git () {
+  if [ -d .git ]; then
+    echo "Run git in '$1'..."
+    shift
+    git "$@"
+  else
+    echo "Skip '$1'"
+  fi
+  echo
+}
+
+rbenv_git_plugins () {
+  shopt -s nullglob
+  for plugin in plugins/*; do
+    pushd "$plugin" >/dev/null
+    rbenv_git "$(basename $plugin)" "$@"
+    popd >/dev/null
+  done
+  shopt -u nullglob
+}
+
+cd "${RBENV_ROOT:-$(rbenv root)}"
+rbenv_git rbenv "$@"
+rbenv_git_plugins "$@"
