@@ -25,6 +25,12 @@ Show all remote repositories:
 
     rbenv git remote -v
 
+Show statuses:
+
+    rbenv git status
+
+And you can use any git sub commands.
+
 ## License
 
 (The MIT License)
