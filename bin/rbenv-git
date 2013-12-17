@@ -6,9 +6,8 @@
 # Example: rbenv git pull
 #          rbenv git gc
 
-set -eo pipefail
-[ -n "$RBENV_DEBUG" ] && set -x
-set -u
+set -euo pipefail
+[ -n "${RBENV_DEBUG-}" ] && set -x
 
 rbenv_git () {
   if [ -d .git ]; then
