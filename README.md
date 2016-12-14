@@ -8,8 +8,8 @@ and all installed plugins.
 
 Simply clone the repository into the plugins directory:
 
-    mkdir -p $(rbenv root)/plugins
-    git clone https://github.com/znz/rbenv-git.git $(rbenv root)/plugins/rbenv-git
+    mkdir -p "$(rbenv root)/plugins"
+    git clone https://github.com/znz/rbenv-git.git "$(rbenv root)/plugins/rbenv-git"
 
 ## Usage
 
