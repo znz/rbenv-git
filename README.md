@@ -1,6 +1,6 @@
 # rbenv-git
 
-This is an [rbenv](https://github.com/sstephenson/rbenv) plugin that
+This is an [rbenv](https://github.com/rbenv/rbenv) plugin that
 provides `rbenv git` command to run `git` in directories of rbenv
 and all installed plugins.
 
